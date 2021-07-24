@@ -2,6 +2,32 @@
 
 This is an updated version that runs via Docker and is easier to maintain.
 
+`docker-compose.yml`
+```
+version: '2.3'
+services:
+  affiliatebot2.0:
+    image: dgc1980/affiliatebot2.0:latest
+    environment:
+      REDDIT_USER: YOUR_REDDIT_BOT_USERNAME
+      REDDIT_PASS: YOUR_REDDIT_BOT_PASS
+      REDDIT_CID: YOURCLIENTID
+      REDDIT_SECRET: YOURSECRET
+      REDDIT_SUBREDDIT: SubReddit
+      # Check comment anchors for match [https://to.link/address](https://to.link/address) to see if they are hiding links
+      CONFIG_CHECKANCHOR: 1
+      # this will only check the base domain for both results, DomainOnly or All
+      CONFIG_ANCHORMATCH: DomainOnly
+    volumes:
+      - ./affilliatebot2.0:/app/config
+    restart: always
+```
+
+
+
+
+
+
 ---
 
 This bot functions as a scanner for Affiliate base content within submissions and comments.
