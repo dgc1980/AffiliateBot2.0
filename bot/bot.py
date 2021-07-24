@@ -216,6 +216,7 @@ def check_post(submission):
 logging.info("bot initialized...." )
 
 while True:
+  try:
     logging.debug("checking submissions")
     for post in subreddit.stream.submissions(pause_after=-1):
         if post is None:
@@ -230,6 +231,9 @@ while True:
         if cmt.id in open(apppath+'commentids.txt').read():
           continue
         check_comment(cmt)
+  except (prawcore.exceptions.RequestException, prawcore.exceptions.ResponseException):
+    logging.info("Error connecting to reddit servers. Retrying in 30 seconds...")
+    time.sleep(30)
 
 
 
