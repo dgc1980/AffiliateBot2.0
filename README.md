@@ -2,32 +2,6 @@
 
 This is an updated version that runs via Docker and is easier to maintain.
 
-`docker-compose.yml`
-```
-version: '2.3'
-services:
-  affiliatebot2.0:
-    image: dgc1980/affiliatebot2.0:latest
-    environment:
-      REDDIT_USER: YOUR_REDDIT_BOT_USERNAME
-      REDDIT_PASS: YOUR_REDDIT_BOT_PASS
-      REDDIT_CID: YOURCLIENTID
-      REDDIT_SECRET: YOURSECRET
-      REDDIT_SUBREDDIT: SubReddit
-      # Check comment anchors for match [https://to.link/address](https://to.link/address) to see if they are hiding links
-      CONFIG_CHECKANCHOR: 1
-      # this will only check the base domain for both results, DomainOnly or All
-      CONFIG_ANCHORMATCH: DomainOnly
-    volumes:
-      - ./affilliatebot2.0:/app/config
-    restart: always
-```
-
-
-
-
-
-
 ---
 
 This bot functions as a scanner for Affiliate base content within submissions and comments.
@@ -56,3 +30,70 @@ If you need any help to configure, or hosting the bot you are welcome to contact
 
 ---
 I have no affiliate links in the above links and not getting paid to promote any of the above providers and they are just my personal recommendations, you are free to use anyone you wish
+
+---
+
+# Installation
+
+Recommended Linux Distro is either Debian 9+ or Ubuntu 18.04+
+
+installation of Docker CE
+
+```
+curl -sSL https://get.docker.com/ | CHANNEL=stable sh
+systemctl enable docker.service
+systemctl start docker.service
+apt install -y docker-compose
+```
+
+enter a directory for the bot to run in and store its data
+
+`mkdir AffiliateBot`
+
+`cd AffiliateBot`
+
+create a `docker-compose.yml` file
+
+`nano -w docker-compose.yml`
+
+and enter the following information
+
+```
+version: '2.3'
+services:
+  affiliatebot2.0:
+    image: dgc1980/affiliatebot2.0:latest
+    environment:
+      REDDIT_USER: YOUR_REDDIT_BOT_USERNAME
+      REDDIT_PASS: YOUR_REDDIT_BOT_PASS
+      REDDIT_CID: YOURCLIENTID
+      REDDIT_SECRET: YOURSECRET
+      REDDIT_SUBREDDIT: SubReddit
+      # Check comment anchors for match [https://to.link/address](https://to.link/address) to see if they are hiding links
+      CONFIG_CHECKANCHOR: 1
+      # this will only check the base domain for both results, DomainOnly or All
+      CONFIG_ANCHORMATCH: DomainOnly
+    volumes:
+      - ./affilliatebot2.0:/app/config
+    restart: always
+```
+
+the username and pass are what you have signed up with
+
+for the Client ID and Secret please visit https://www.reddit.com/prefs/apps
+
+create a new app as script, then use the information from that for your configuration above
+
+once you have completed the above load the docker container with the following
+
+`docker-compose up`
+
+you will see that it will automatically download the required configuration for affiliate filtering press CTRL+C to stop the bot
+
+edit your `affilliatebot2.0/affiliatedata.txt` and such with additional information if required then restart the bot detached
+
+`docker-compose up -d`
+
+if you wish to stop the bot in the future use
+
+`docker-compose down`
