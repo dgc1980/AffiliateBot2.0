@@ -18,13 +18,13 @@ If you need any help to configure, or hosting the bot you are welcome to contact
 
 # Options for hosting
 
-[Gullo's Hosting](https://hosting.gullo.me/pricing) - Cheap OpenVZ NAT Based VPS using a Shared IPv4 between other members recommended 512MB server but will worth with 256MB (upgrading to Docker for newer versions of bot 512MB required)
+[VirMach](https://virmach.com/special-offers/) Cheap KVM Based VPS with cheap prices and dedicated IPv4 - I currently use a 1GB system here for my production bots and are highly recommended.
 
-* use coupon `LEB-NAT-256MB` or `LEB-NAT-512MB` depending on your choice to take about 40% off the price
+[Gullo's Hosting](https://hosting.gullo.me/pricing) - Cheap OpenVZ NAT Based VPS using a Shared IPv4 between other members recommended 512MB server ($6.50). Docker for newer versions of bot 512MB require
+
+* use coupon `LEB-NAT-512MB` to get the 512MB VPS for $4.00 unless the coupon expires.
 
 [Boomer.host](https://my.boomer.host/order.php?step=1&productGroup=4&product=7) - Cheap OpenVZ Based VPS with its own IPv4 - USD4.99 per year. fairly new host not many reviews I have started using one for testing
-
-[VirMach](https://virmach.com/special-offers/) Cheap KVM Based VPS with cheap prices and dedicated IPv4 - I currently use a 1GB system here for my production bots and are highly recommended
 
 
 
