@@ -179,6 +179,7 @@ def check_comment(comment):
     for url in unique_urls:
         urlcheck = check_url( url )
         if urlcheck:
+            logging.info("Reporting " + comment.id + " for " + urlcheck )
             comment.report( "Affiliate Bot: " + urlcheck )
             return
 
