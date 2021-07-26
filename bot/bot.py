@@ -87,7 +87,7 @@ if not os.path.isfile(apppath+"ignoreurls.txt"):
   logging.info("Not Found!! - downloading base template" )
   url = 'https://gist.githubusercontent.com/dgc1980/f9d35c91621026d992ef2fcf11242838/raw/ignoreurls.txt'
   download(url, apppath+"ignoreurls.txt")
-URLignores = loadtxt(apppath+"ignoreurls.txt", comments="#", delimiter=",", unpack=False, dtype='str', ndmin = 1)
+URLignore = loadtxt(apppath+"ignoreurls.txt", comments="#", delimiter=",", unpack=False, dtype='str', ndmin = 1)
 
 
 f = open(apppath+"submissionids.txt","a+")
