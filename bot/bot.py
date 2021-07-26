@@ -82,6 +82,13 @@ if not os.path.isfile(apppath+"greylist.txt"):
   download(url, apppath+"greylist.txt")
 Greylist = loadtxt(apppath+"greylist.txt", comments="#", delimiter=",", unpack=False, dtype='str', ndmin = 1)
 
+logging.info("Loading IgnoreURL Data" )
+if not os.path.isfile(apppath+"ignoreurls.txt"):
+  logging.info("Not Found!! - downloading base template" )
+  url = 'https://gist.githubusercontent.com/dgc1980/f9d35c91621026d992ef2fcf11242838/raw/ignoreurls.txt'
+  download(url, apppath+"ignoreurls.txt")
+URLignores = loadtxt(apppath+"ignoreurls.txt", comments="#", delimiter=",", unpack=False, dtype='str', ndmin = 1)
+
 
 f = open(apppath+"submissionids.txt","a+")
 f.close()
@@ -120,6 +127,9 @@ def getdomain( url ):
 def check_url( url ):
     if re.search("(?:https?:\/\/)?(?:www\.)?([\w\-\.]+)\/", url) is not None:
         forceload = False
+        for uignore in URLignore:
+            if uignore in url.lower():
+                return = True
         for greylist in Greylist:
             if greylist in url.lower():
                 forceload = True
