@@ -129,7 +129,7 @@ def check_url( url ):
         forceload = False
         for uignore in URLignore:
             if uignore in url.lower():
-                return = True
+                return
         for greylist in Greylist:
             if greylist in url.lower():
                 forceload = True
