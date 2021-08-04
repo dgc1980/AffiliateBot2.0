@@ -59,7 +59,7 @@ create a `docker-compose.yml` file
 and enter the following information
 
 ```
-version: '2.3'
+version: '2.0'
 services:
   affiliatebot2.0:
     image: dgc1980/affiliatebot2.0:latest
