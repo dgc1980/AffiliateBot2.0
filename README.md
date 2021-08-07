@@ -24,8 +24,6 @@ If you need any help to configure, or hosting the bot you are welcome to contact
 
 * use coupon `LEB-NAT-512MB` to get the 512MB VPS for USD8.00 unless the coupon expires.
 
-[Boomer.host](https://my.boomer.host/order.php?step=1&productGroup=4&product=7) - Cheap OpenVZ Based VPS with its own IPv4 - USD4.99 per year. fairly new host not many reviews I have started using one for testing
-
 
 
 ---
